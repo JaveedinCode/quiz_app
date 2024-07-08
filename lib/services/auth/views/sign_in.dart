@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quiz_app/screens/home.dart';
+import 'package:quiz_app/screens/quiz_screen.dart';
 import 'package:quiz_app/services/auth/controller/auth_controller.dart';
 import 'package:quiz_app/services/auth/views/sign_up.dart';
 
@@ -132,14 +132,11 @@ class _SignInState extends State<SignIn> {
                                       .signInWithEmailAndPassowrd(
                                           email: _emailcontroller.text,
                                           password: _passwordcontroller.text)
-                                      .then(
-                                        (value) => Navigator.pushAndRemoveUntil(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (_) => const HomePage(),
-                                            ),
-                                            (route) => false),
-                                      );
+                                      .then((value) => Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const QuizScreen1())));
                                 }
                               },
                               shape: RoundedRectangleBorder(
